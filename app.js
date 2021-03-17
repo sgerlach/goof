@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-
+require('@snyk/nodejs-runtime-agent')({projectId: '1820ffc7-22da-44df-bef5-0c517c9284db ',});
 // mongoose setup
 require('./mongoose-db');
 require('./typeorm-db')

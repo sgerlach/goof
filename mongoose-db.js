@@ -43,12 +43,9 @@ if (mongoCFUri) {
 console.log("Using Mongo URI " + mongoUri);
 
 var options = {
-  useUnifiedTopology: true,
   reconnectTries: Number.MAX_VALUE,
   reconnectInterval: 500,
-  connectTimeoutMS: 1000,
-  useNewUrlParser: true,
-  bufferTimeout: 300,
+  connectTimeoutMS: 10000,
   poolSize: 20,
   socketTimeoutMS: 480000,
   keepAlive: 300000,
@@ -56,7 +53,11 @@ var options = {
 };
 
 mongoose.connect(mongoUri, options);
-mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
+mongoose.connection
+  .once('open', () => console.log('Mongo Connected'))
+  .on('error', (error) => {
+    console.warn('Mongo connection error:');
+  });
 
 
 User = mongoose.model('User');
