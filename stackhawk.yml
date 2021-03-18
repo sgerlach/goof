@@ -6,6 +6,7 @@ app:
   env: Development # (required)
   # The url of your application to scan
   host: http://localhost:3001 # (required)
+  autoPolicy: true
 
   # api:   # The risk level of the app
   # riskLevel: MEDIUM # (optional)
@@ -102,7 +103,7 @@ app:
 #      # Leave undefined if not applicable.
 #      tokenType: Bearer
 #  # Path to openapi 2 spec file or inline openapi 2 spec yaml
-  api: "openapi.json" # (optional)
+  # api: "openapi.json" # (optional)
 #hawk:
 #  # Web crawler / spider configuration
 #  spider:
